@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b2454" />
+  <meta name="description" content="AG Services — Care, Support, Explore, Learn. Personal support for families, parents, children, visitors and busy individuals in Morocco." />
+  <title>AG Services | Care • Support • Explore • Learn</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy:#0b2454;
+      --navy-2:#071a3c;
+      --gold:#c99a2e;
+      --gold-light:#e8c76b;
+      --cream:#fffaf0;
+      --paper:#fffdf7;
+      --ink:#17233a;
+      --muted:#667085;
+      --pink:#e85c86;
+      --teal:#4bb6ad;
+      --lavender:#b7a3e5;
+      --shadow:0 22px 60px rgba(11,36,84,.13);
+      --radius:24px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(232,199,107,.18), transparent 28rem),
+        radial-gradient(circle at 90% 18%, rgba(75,182,173,.10), transparent 25rem),
+        var(--cream);
+      font-family:"DM Sans",system-ui,sans-serif;
+      line-height:1.65;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(calc(100% - 40px),var(--max));margin:auto}
+    .eyebrow{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.75rem;
+      font-weight:700;
+    }
+    h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;line-height:1.05;margin:0;color:var(--navy)}
+    h1{font-size:clamp(3.3rem,7vw,6.7rem);letter-spacing:-.045em}
+    h2{font-size:clamp(2.5rem,5vw,4.2rem);letter-spacing:-.035em}
+    h3{font-size:1.9rem}
+    p{margin:.8rem 0}
+    .script{font-family:"Great Vibes",cursive;color:var(--navy);font-size:clamp(2.2rem,4vw,3.8rem);line-height:1.05}
+    .topbar{
+      background:var(--navy-2);color:#fff;padding:8px 0;font-size:.82rem;
+    }
+    .topbar-inner{display:flex;justify-content:space-between;gap:18px;align-items:center}
+    .topbar a{color:#fff}
+    nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(16px);
+      background:rgba(255,253,247,.9);
+      border-bottom:1px solid rgba(11,36,84,.08);
+    }
+    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy)}
+    .brand-mark{width:45px;height:45px;border:2px solid var(--gold);border-radius:50%;object-fit:cover}
+    .brand span{letter-spacing:.04em}
+    .nav-links{display:flex;gap:22px;align-items:center;font-size:.86rem;font-weight:600}
+    .nav-links a{position:relative;padding:8px 0}
+    .nav-links a:after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--gold);transition:.25s}
+    .nav-links a:hover:after{right:0}
+    .menu{display:none;border:0;background:none;font-size:1.6rem;color:var(--navy);cursor:pointer}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:13px 19px;border-radius:999px;font-weight:700;font-size:.88rem;
+      transition:.25s;border:1px solid transparent;cursor:pointer;
+    }
+    .btn-primary{background:var(--navy);color:#fff;box-shadow:0 10px 25px rgba(11,36,84,.18)}
+    .btn-primary:hover{transform:translateY(-2px);background:#102e68}
+    .btn-outline{border-color:rgba(11,36,84,.22);color:var(--navy);background:rgba(255,255,255,.5)}
+    .btn-outline:hover{border-color:var(--gold);transform:translateY(-2px)}
+
+    .hero{padding:72px 0 90px;position:relative;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+    .hero-copy{position:relative;z-index:2}
+    .hero-copy .eyebrow{margin-bottom:18px}
+    .hero-copy h1 span{color:var(--gold)}
+    .hero-lead{font-size:1.08rem;max-width:650px;color:#46546c}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}
+    .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+    .pill{padding:8px 12px;border-radius:999px;background:#fff;border:1px solid rgba(11,36,84,.08);font-size:.78rem;font-weight:700;color:var(--navy);box-shadow:0 5px 18px rgba(11,36,84,.05)}
+    .hero-visual{position:relative}
+    .hero-visual:before{content:"";position:absolute;inset:-25px;border:1px solid rgba(201,154,46,.35);border-radius:50%;transform:rotate(8deg)}
+    .logo-frame{background:#fff;border-radius:50%;padding:10px;box-shadow:var(--shadow);position:relative}
+    .logo-frame img{border-radius:50%;width:100%;aspect-ratio:1;object-fit:cover}
+    .floating-note{
+      position:absolute;background:#fff;border:1px solid rgba(11,36,84,.08);box-shadow:var(--shadow);
+      border-radius:18px;padding:12px 15px;font-size:.78rem;font-weight:700;color:var(--navy)
+    }
+    .note-one{left:-25px;bottom:10%;transform:rotate(-3deg)}
+    .note-two{right:-20px;top:11%;transform:rotate(4deg)}
+    .heart{color:var(--pink)}
+
+    section{padding:95px 0}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:38px}
+    .section-head p{max-width:580px;color:var(--muted)}
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px}
+    .paper-card,.service-card,.value-card,.contact-card,.experience-card{
+      background:rgba(255,255,255,.82);border:1px solid rgba(11,36,84,.08);border-radius:var(--radius);box-shadow:var(--shadow)
+    }
+    .paper-card{padding:34px}
+    .about-photo{overflow:hidden;padding:0;position:relative;min-height:100%}
+    .about-photo img{height:100%;width:100%;object-fit:cover}
+    .about-photo .caption{position:absolute;left:20px;right:20px;bottom:20px;padding:16px 18px;border-radius:18px;background:rgba(255,253,247,.91);backdrop-filter:blur(8px)}
+    .quote{margin:24px 0;padding:20px 22px;border-left:4px solid var(--gold);background:rgba(232,199,107,.12);border-radius:0 18px 18px 0;font-family:"Cormorant Garamond",serif;font-size:1.5rem;color:var(--navy)}
+    .values{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:20px}
+    .value-card{padding:20px;text-align:center}
+    .value-icon{font-size:1.6rem;margin-bottom:8px}.value-card strong{display:block;color:var(--navy);font-size:.9rem}.value-card span{font-size:.75rem;color:var(--muted)}
+
+    .services-section{background:linear-gradient(180deg,rgba(11,36,84,.04),rgba(201,154,46,.06))}
+    .service-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+    .filter{border:1px solid rgba(11,36,84,.13);background:#fff;border-radius:999px;padding:9px 14px;cursor:pointer;font-weight:700;color:var(--navy);font-size:.8rem}
+    .filter.active,.filter:hover{background:var(--navy);color:#fff}
+    .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .service-card{padding:28px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:.3s}
+    .service-card:hover{transform:translateY(-5px)}
+    .service-card:before{content:"";position:absolute;right:-40px;top:-50px;width:130px;height:130px;border-radius:50%;background:rgba(201,154,46,.12)}
+    .service-top{display:flex;justify-content:space-between;gap:20px;align-items:start}
+    .service-number{font-size:.75rem;font-weight:800;color:var(--gold);letter-spacing:.14em}
+    .service-icon{font-size:2rem}
+    .service-card p{color:var(--muted);font-size:.91rem}
+    .price{display:inline-block;color:var(--navy);font-weight:800;margin:9px 0 15px}
+    .mini-list{padding-left:18px;margin:8px 0;color:#536077;font-size:.85rem}
+    .mini-list li{margin:4px 0}
+    .service-actions{margin-top:auto;padding-top:16px;display:flex;gap:9px;flex-wrap:wrap}
+
+    .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .experience-card{padding:30px}
+    .day-plan{margin-top:16px;display:grid;gap:8px}
+    .day-row{display:flex;gap:14px;padding:10px 12px;border-radius:12px;background:#fff;border:1px solid rgba(11,36,84,.07)}
+    .day-time{font-weight:800;color:var(--gold);min-width:65px}
+
+    .important{background:var(--navy);color:#fff}
+    .important h2,.important h3{color:#fff}
+    .important .section-head p{color:rgba(255,255,255,.72)}
+    .notice-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .notice{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);border-radius:20px;padding:24px}
+    .notice ul{margin:10px 0 0;padding-left:20px;color:rgba(255,255,255,.78)}
+    .notice li{margin:7px 0}
+
+    .contact{padding:90px 0 110px}
+    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch}
+    .contact-card{padding:34px}
+    .contact-details{display:grid;gap:12px;margin:24px 0}
+    .contact-item{display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:15px;background:#fff;border:1px solid rgba(11,36,84,.08)}
+    .contact-item b{display:block;color:var(--navy);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em}
+    .contact-item span{color:#526078}
+    .contact-side{display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(145deg,#fff,#fff6df)}
+    .seal{font-size:4rem;color:var(--gold);font-family:"Cormorant Garamond",serif}
+    footer{background:var(--navy-2);color:rgba(255,255,255,.75);padding:26px 0;font-size:.8rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .footer-brand{color:#fff;font-weight:800}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.show{opacity:1;transform:none}
+    .hidden{display:none!important}
+
+    dialog{border:0;border-radius:26px;width:min(760px,calc(100% - 30px));padding:0;box-shadow:0 30px 100px rgba(0,0,0,.35);background:var(--paper);color:var(--ink)}
+    dialog::backdrop{background:rgba(4,14,32,.72);backdrop-filter:blur(4px)}
+    .modal-head{padding:28px 30px 20px;border-bottom:1px solid rgba(11,36,84,.08);display:flex;justify-content:space-between;gap:20px}
+    .modal-body{padding:24px 30px 30px;max-height:65vh;overflow:auto}
+    .close{border:0;background:#edf0f5;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1.2rem;color:var(--navy)}
+    .modal-body ul{padding-left:21px}.modal-body li{margin:5px 0}
+    .price-box{display:inline-flex;padding:8px 12px;border-radius:999px;background:rgba(201,154,46,.14);font-weight:800;color:var(--navy);margin:6px 0 16px}
+
+    @media(max-width:900px){
+      .nav-links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--paper);padding:18px 20px;border-bottom:1px solid rgba(11,36,84,.08);flex-direction:column;align-items:flex-start}
+      .nav-links.open{display:flex}.menu{display:block}
+      .hero-grid,.about-grid,.contact-grid,.story-grid{grid-template-columns:1fr}
+      .hero{padding-top:48px}.hero-visual{max-width:600px;margin:auto}
+      .values{grid-template-columns:repeat(2,1fr)}
+      .services-grid,.notice-grid{grid-template-columns:1fr}
+      .section-head{display:block}
+    }
+    @media(max-width:560px){
+      .container{width:min(calc(100% - 24px),var(--max))}
+      .topbar-inner{justify-content:center;text-align:center}.topbar .hide-mobile{display:none}
+      .nav-inner{height:68px}.nav-links{top:68px}
+      .hero{padding:38px 0 65px}
+      section{padding:70px 0}
+      .paper-card,.service-card,.contact-card,.experience-card{padding:23px}
+      .values{grid-template-columns:1fr 1fr}
+      .floating-note{display:none}
+      .hero-actions .btn{width:100%}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>🌸 AG SERVICES — <strong>Care • Support • Explore • Learn</strong></span>
+      <span class="hide-mobile">Morocco · Personal support for families & visitors</span>
+    </div>
+  </div>
+
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="AG Services home">
+        <img class="brand-mark" src="assets/ag-services-logo.jpeg" alt="AG Services logo">
+        <span>AG SERVICES</span>
+      </a>
+      <button class="menu" aria-label="Open menu" id="menuBtn">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#experience">Family Experience</a>
+        <a href="#values">Why AG?</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn btn-primary" href="#contact">Let's talk</a>
+    </div>
+  </nav>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">A personal support initiative in Morocco</div>
+          <h1>Making life <span>easier</span>, trips brighter & children happier.</h1>
+          <p class="hero-lead">
+            AG Services offers flexible personal support for families, parents, children, visitors and busy individuals —
+            from childcare and home organisation to holiday planning, accompaniment and English tutoring.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#services">Explore services ↓</a>
+            <a class="btn btn-outline" href="#contact">Contact Glory</a>
+          </div>
+          <div class="pill-row">
+            <span class="pill">❤️ Caring</span>
+            <span class="pill">🤝 Reliable</span>
+            <span class="pill">🌸 Patient</span>
+            <span class="pill">🗓️ Organised</span>
+            <span class="pill">🌍 Adventurous</span>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="logo-frame">
+            <img src="assets/ag-services-logo.jpeg" alt="AG Services — Care, Support, Explore, Learn">
+          </div>
+          <div class="floating-note note-one">Children • Families • Memories <span class="heart">♥</span></div>
+          <div class="floating-note note-two">Morocco · Care · Support ✈️</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">01 — About</div>
+            <h2>Warm support, thoughtfully organised.</h2>
+          </div>
+          <p>AG was created from a simple idea: sometimes families do not need a traditional tour guide, a full-time employee or a travel agency — they simply need a reliable person who can help with the details.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="paper-card reveal">
+            <div class="script">Hello & welcome</div>
+            <p>Hello and welcome to AG Services. My name is <strong>Glory</strong>, and I am a nursing student with a warm heart, a happy soul, and a genuine love for people.</p>
+            <p>I enjoy children, learning, creativity, adventure, travelling, discovering new places and creating beautiful memories. I especially enjoy helping families feel comfortable, supported and organised.</p>
+            <p>My nursing background has taught me the importance of responsibility, patience, cleanliness, observation, empathy and caring for others. Beyond my studies, I am naturally curious and adventurous — discovering places, trying new activities, taking pictures, learning about different cultures and turning ordinary moments into memorable experiences.</p>
+            <p>This is what inspired me to create AG Services.</p>
+            <div class="quote">“You enjoy the moment. We help take care of the details.”</div>
+            <p>Whether you need help with your children, your home, your daily schedule, your holiday activities or English lessons, AG offers flexible support according to your needs.</p>
+          </div>
+          <div class="paper-card about-photo reveal">
+            <img src="assets/ag-services-logo.jpeg" alt="AG Services visual identity">
+            <div class="caption">
+              <strong>AG SERVICES</strong><br>
+              Care • Support • Explore • Learn
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">02 — Services</div>
+            <h2>Everything in one beautiful, flexible support menu.</h2>
+          </div>
+          <p>Tap “Details” on any service to see the full offer and pricing from the AG Services brochure.</p>
+        </div>
+
+        <div class="service-toolbar reveal" role="tablist" aria-label="Filter services">
+          <button class="filter active" data-filter="all">All services</button>
+          <button class="filter" data-filter="children">Children</button>
+          <button class="filter" data-filter="family">Family & outings</button>
+          <button class="filter" data-filter="home">Home & personal</button>
+          <button class="filter" data-filter="learning">Learning</button>
+        </div>
+
+        <div class="services-grid" id="serviceGrid">
+          <article class="service-card reveal" data-category="children" data-service="childcare">
+            <div class="service-top"><span class="service-number">01 / CHILDCARE</span><span class="service-icon">👶</span></div>
+            <h3>Childcare & Baby Care</h3>
+            <p>Attentive, age-appropriate care designed to give parents a little more freedom while children are cared for, entertained and meaningfully engaged.</p>
+            <ul class="mini-list">
+              <li>Baby care: comfort, routine, feeding assistance & nap support</li>
+              <li>Ages 3–5: creative play, stories, games & outdoor activities</li>
+              <li>6+: reading, English conversation, sports & discovery</li>
+            </ul>
+            <span class="price">From 60 DH/hour</span>
+            <div class="service-actions"><button class="btn btn-primary details-btn">View details</button><a class="btn btn-outline" href="#contact">Ask about care</a></div>
+          </article>
+
+          <article class="service-card reveal" data-category="children" data-service="activities">
+            <div class="service-top"><span class="service-number">02 / PLAY & DISCOVERY</span><span class="service-icon">🎨</span></div>
+            <h3>Children's Activities</h3>
+            <p>Childcare is more than “watching the children”. AG helps children play, explore, learn, create and discover.</p>
+            <ul class="mini-list">
+              <li>Outdoor: parks, picnics, beaches, marinas & nature walks</li>
+              <li>Creative: painting, crafts, pottery, photography & cooking</li>
+              <li>Adventure & discovery: swimming, surfing, cycling, museums, souks</li>
+            </ul>
+            <span class="price">Activities selected to suit age, interests & safety needs</span>
+            <div class="service-actions"><button class="btn btn-primary details-btn">View details</button><a class="btn btn-outline" href="#contact">Plan an activity</a></div>
+          </article>
+
+          <article class="service-card reveal" data-category="family" data-service="companion">
+            <div class="service-top"><span class="service-number">03 / FAMILY COMPANION</span><span class="service-icon">📸</span></div>
+            <h3>Activity & Family Companion</h3>
+            <p>AG accompanies families and children during outings — supporting parents and helping the day flow more easily.</p>
+            <ul class="mini-list">
+              <li>Parks, beaches, marinas, restaurants & shopping areas</li>
+              <li>Museums, cultural sites, swimming & surfing facilities</li>
+              <li>Children's entertainment, practical help & family photos</li>
+            </ul>
+            <span class="price">From 80 DH/hour</span>
+            <div class="service-actions"><button class="btn btn-primary details-btn">View details</button><a class="btn btn-outline" href="#contact">Book accompaniment</a></div>
+          </article>
+
+          <article class="service-card reveal" data-category="family" data-service="vacation">
+            <div class="service-top"><span class="service-number">04 / HOLIDAY</span><span class="service-icon">✈️</span></div>
+            <h3>Vacation Planning & Organisation</h3>
+            <p>A personalised, flexible family programme based on children's ages, length of stay, interests, budget, activities, baby routine and location.</p>
+            <ul class="mini-list">
+              <li>Day-by-day ideas without making the holiday feel rigid</li>
+              <li>Family-friendly activity and meal planning</li>
+              <li>Example schedules that leave room for real family life</li>
+            </ul>
+            <span class="price">From 200 DH/day</span>
+            <div class="service-actions"><button class="btn btn-primary details-btn">View details</button><a class="btn btn-outline" href="#contact">Plan my holiday</a></div>
+          </article>
+
+          <article class="service-card reveal" data-category="home" data-service="assistant">
+            <div class="service-top"><span class="service-number">05 / PRACTICAL HELP</span><span class="service-icon">👩🏾‍💼</span></div>
+            <h3>Personal Assistant Services</h3>
+            <p>Sometimes you simply need an extra pair of hands. AG provides flexible assistance for busy individuals and families.</p>
+            <ul class="mini-list">
+              <li>Appointments, schedules, shopping and errands</li>
+              <li>Collecting/delivering items & daily activity organisation</li>
+              <li>Basic household, travel-related & practical communication support</li>
+            </ul>
+            <span class="price">From 100 DH/day</span>
+            <div class="service-actions"><button class="btn btn-primary details-btn">View details</button><a class="btn btn-outline" href="#contact">Discuss assistance</a></div>
+          </article>
+
+          <article class="service-card reveal" data-category="home" data-service="cleaning">
+            <div class="service-top"><span class="service-number">06 / HOME</span><span class="service-icon">🧹</span></div>
+            <h3>Cleaning Services</h3>
+            <p>Basic cleaning and organisation support for homes and apartments, including post-travel cleaning and tailored deep cleaning.</p>
+            <ul class="mini-list">
+              <li>Dusting, sweeping, mopping, kitchen & bathroom cleaning</li>
+              <li>Bedrooms, laundry assistance, folding & ironing</li>
+              <li>Deep cleaning: customised price after discussing the property</li>
+            </ul>
+            <span class="price">From 80 DH/hour</span>
+            <div class="service-actions"><button class="btn btn-primary details-btn">View details</button><a class="btn btn-outline" href="#contact">Request cleaning</a></div>
+          </article>
+
+          <article class="service-card reveal" data-category="learning" data-service="english">
+            <div class="service-top"><span class="service-number">07 / LEARNING</span><span class="service-icon">🇬🇧</span></div>
+            <h3>English Tutoring</h3>
+            <p>Fun, practical and useful English for children, teenagers and adults — including learning through real-life adventures.</p>
+            <ul class="mini-list">
+              <li>Children: alphabet, vocabulary, reading, pronunciation, stories & games</li>
+              <li>Teens/adults: conversation, grammar, reading, writing & travel English</li>
+              <li>Business English and “English Through Adventure”</li>
+            </ul>
+            <span class="price">200 DH / 1-hour private lesson</span>
+            <div class="service-actions"><button class="btn btn-primary details-btn">View details</button><a class="btn btn-outline" href="#contact">Book a lesson</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">03 — Special Family Experience</div>
+            <h2>One day. Many moments. Less overwhelm.</h2>
+          </div>
+          <p>AG can combine several services into one personalised experience for families visiting Morocco.</p>
+        </div>
+
+        <div class="story-grid">
+          <div class="experience-card reveal">
+            <div class="script">A family day, your way.</div>
+            <p>Childcare + Activities + Accompaniment + English + Holiday Organisation can work together as one flexible family experience.</p>
+            <p>The goal isn't simply to fill the schedule. The goal is to create beautiful memories without making parents feel overwhelmed.</p>
+            <div class="quote">“We feel supported.”</div>
+          </div>
+          <div class="experience-card reveal">
+            <h3>Example flexible programme</h3>
+            <div class="day-plan">
+              <div class="day-row"><span class="day-time">09:30</span><span>Park</span></div>
+              <div class="day-row"><span class="day-time">11:30</span><span>Marina walk</span></div>
+              <div class="day-row"><span class="day-time">12:30</span><span>Family lunch</span></div>
+              <div class="day-row"><span class="day-time">14:00</span><span>Rest / baby nap</span></div>
+              <div class="day-row"><span class="day-time">15:30</span><span>Children's creative activity</span></div>
+              <div class="day-row"><span class="day-time">17:00</span><span>Ice cream + photos</span></div>
+              <div class="day-row"><span class="day-time">18:00</span><span>Return to accommodation</span></div>
+            </div>
+            <p><small>Travelling with children — especially a baby — doesn't always go according to the clock. The programme remains flexible.</small></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="values">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">04 — Why AG?</div>
+            <h2>Built around people, not just tasks.</h2>
+          </div>
+          <p>Every family is different. AG is designed to be flexible, respectful and practical.</p>
+        </div>
+        <div class="values">
+          <div class="value-card reveal"><div class="value-icon">❤️</div><strong>Caring</strong><span>Kindness & respect</span></div>
+          <div class="value-card reveal"><div class="value-icon">🤝</div><strong>Reliable</strong><span>Commitments taken seriously</span></div>
+          <div class="value-card reveal"><div class="value-icon">🌸</div><strong>Patient</strong><span>Especially with children</span></div>
+          <div class="value-card reveal"><div class="value-icon">🗓️</div><strong>Organised</strong><span>Turning plans into reality</span></div>
+          <div class="value-card reveal"><div class="value-icon">🌍</div><strong>Adventurous</strong><span>Discover, learn & create memories</span></div>
+        </div>
+        <div class="paper-card reveal" style="margin-top:20px">
+          <h3>Respectful & Discreet 🔐</h3>
+          <p>Your family, home and personal information are treated with respect.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="important">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">05 — Important</div>
+            <h2>A clear, transparent service.</h2>
+          </div>
+          <p>AG is a personal support and accompaniment service. Clear boundaries help keep expectations safe and professional.</p>
+        </div>
+        <div class="notice-grid">
+          <div class="notice reveal">
+            <h3>AG is not</h3>
+            <ul>
+              <li>A travel agency</li>
+              <li>A professional tour-guide service</li>
+              <li>A transportation company</li>
+              <li>A medical service</li>
+              <li>An activity provider</li>
+            </ul>
+          </div>
+          <div class="notice reveal">
+            <h3>For third-party activities</h3>
+            <ul>
+              <li>For surfing, swimming, horse riding, boat trips and similar activities, the appropriate professional provider is responsible for the activity itself, including safety rules and age requirements.</li>
+              <li>Transportation, entrance tickets, meals and third-party activity fees are not included unless specifically agreed upon in advance.</li>
+              <li>Services are discussed and agreed upon before work begins.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="paper-card reveal" style="margin-top:20px;background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.15)">
+          <h3 style="color:#fff">A simple mission 🌸</h3>
+          <p style="color:rgba(255,255,255,.78)">Where parents can enjoy their time. Where children can play, learn and explore. Where visitors can discover Morocco without feeling overwhelmed. And where everyday tasks become a little easier.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container contact-grid">
+        <div class="contact-card reveal">
+          <div class="eyebrow">06 — Contact</div>
+          <h2>Let's make your day easier.</h2>
+          <p>Tell Glory what you need and AG can discuss a flexible service that fits your family, trip or daily routine.</p>
+          <div class="contact-details">
+            <div class="contact-item"><span>👩🏾‍💼</span><div><b>Name</b><span>Alemngu Glory</span></div></div>
+            <div class="contact-item"><span>📞</span><div><b>Number</b><span>0720756767</span></div></div>
+            <div class="contact-item"><span>✉️</span><div><b>Email</b><span>720756767</span></div></div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:0720756767">Call 0720756767</a>
+            <a class="btn btn-outline" href="mailto:720756767">Email 720756767</a>
+          </div>
+        </div>
+        <div class="contact-card contact-side reveal">
+          <div>
+            <div class="seal">AG</div>
+            <h3>Care • Support • Explore • Learn</h3>
+            <p>Personal support for families, parents, children, visitors and busy individuals living in or visiting Morocco.</p>
+          </div>
+          <div class="quote">Making life easier, trips brighter and children happier. <span class="heart">♥</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div><span class="footer-brand">AG SERVICES</span> — Care • Support • Explore • Learn</div>
+      <div>© <span id="year"></span> AG Services · Morocco</div>
+    </div>
+  </footer>
+
+  <dialog id="serviceModal">
+    <div class="modal-head">
+      <div><div class="eyebrow" id="modalEyebrow">Service</div><h2 id="modalTitle"></h2></div>
+      <button class="close" id="modalClose" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </dialog>
+
+  <script>
+    const details = {
+      childcare: {
+        eyebrow:"01 — Childcare & Baby Care", title:"Childcare & Baby Care",
+        price:"80 DH/hour · 70 DH/hour · 60 DH/hour",
+        html:`<p>Children are at the heart of what AG does. The service gives parents a little more freedom while children are cared for, entertained and meaningfully engaged.</p>
+        <h3>👶 Baby Care — 0–2 years</h3>
+        <p>Priority: comfort, safety, routine and attentive care.</p>
+        <ul><li>Feeding assistance</li><li>Bottle preparation</li><li>Diaper changing</li><li>Nap-time support</li><li>Gentle play & baby stimulation activities</li><li>Keeping the baby's environment organised</li><li>Comforting and soothing</li><li>Following the baby's normal routine</li><li>Keeping parents informed about the baby's activities</li></ul>
+        <div class="price-box">80 DH/hour</div>
+        <h3>🧒 Children — 3–5 years</h3><ul><li>Drawing and colouring</li><li>Storytelling</li><li>Puzzles & educational games</li><li>Music and dancing</li><li>Simple English games</li><li>Outdoor play & ball games</li><li>Creative activities & nature discovery</li></ul><div class="price-box">70 DH/hour</div>
+        <h3>👧👦 Children — 6 years and above</h3><ul><li>Reading</li><li>Educational games</li><li>English conversation</li><li>Creative projects</li><li>Sports & outdoor activities</li><li>Photography challenges</li><li>Treasure hunts</li><li>Cultural discovery</li><li>Supervised outings</li><li>Age-appropriate learning activities</li></ul><div class="price-box">60 DH/hour</div>`
+      },
+      activities: {
+        eyebrow:"02 — Children's Activities", title:"Children's Activities",
+        price:"Customised to age, interests, safety & family preferences",
+        html:`<p>AG does not believe childcare should mean simply “watching the children.” Children are encouraged to play, explore, learn, create and discover.</p>
+        <h3>🌳 Outdoor</h3><ul><li>Parks and gardens</li><li>Picnics</li><li>Beach days</li><li>Marina walks</li><li>Playground activities</li><li>Nature walks</li><li>Outdoor games</li></ul>
+        <h3>🎨 Creative</h3><ul><li>Painting</li><li>Drawing</li><li>Crafts</li><li>Pottery workshops</li><li>Photography</li><li>Storytelling</li><li>Cooking activities</li></ul>
+        <h3>🏄 Adventure</h3><ul><li>Swimming</li><li>Surfing lessons</li><li>Horse or pony riding</li><li>Camel experiences</li><li>Cycling</li><li>Outdoor challenges</li></ul>
+        <h3>🦁 Discovery</h3><ul><li>Zoo visits</li><li>Museums</li><li>Cultural sites</li><li>Markets and souks</li><li>Gardens</li><li>Family-friendly attractions</li></ul>
+        <p>Activities are selected according to the children's ages, interests, safety requirements and the family's preferences.</p>`
+      },
+      companion: {
+        eyebrow:"03 — Activity & Family Companion", title:"Activity & Family Companion",
+        price:"From 80 DH/hour",
+        html:`<p>AG accompanies — it does not act as a tour guide. Families visiting Morocco may already have places they want to visit, but sometimes they need an extra person to help make the day easier.</p>
+        <h3>Places AG can accompany families and children</h3><ul><li>Parks</li><li>Beaches</li><li>Marinas</li><li>Restaurants</li><li>Shopping areas</li><li>Museums</li><li>Cultural sites</li><li>Swimming facilities</li><li>Surfing schools</li><li>Horse-riding centres</li><li>Family activities</li><li>Children's entertainment locations</li></ul>
+        <h3>Support can include</h3><ul><li>Accompanying the children</li><li>Helping parents manage the children during outings</li><li>Keeping children engaged</li><li>Helping with simple communication</li><li>Taking family photographs</li><li>Helping organise children's belongings</li><li>Supporting parents with practical needs</li><li>Staying with the baby while parents participate in an activity with older children</li></ul>
+        <p><strong>Important:</strong> AG is not a professional or licensed tourist guide and does not provide historical tours or official tourist guiding.</p>`
+      },
+      vacation: {
+        eyebrow:"04 — Vacation Planning & Organisation", title:"Vacation Planning & Organisation",
+        price:"From 200 DH/day",
+        html:`<p>A holiday should be enjoyable — not stressful. AG can help families organise their days so they spend less time wondering where to go, what children can do, where to eat or what to do tomorrow.</p>
+        <p>The programme can be personalised around:</p><ul><li>Number and ages of children</li><li>Length of stay</li><li>Family interests</li><li>Budget</li><li>Preferred activities</li><li>Baby's routine</li><li>Location</li></ul>
+        <h3>Example</h3><div class="day-plan"><div class="day-row"><span class="day-time">09:30</span><span>Park</span></div><div class="day-row"><span class="day-time">11:30</span><span>Marina walk</span></div><div class="day-row"><span class="day-time">12:30</span><span>Family lunch</span></div><div class="day-row"><span class="day-time">14:00</span><span>Rest/baby nap</span></div><div class="day-row"><span class="day-time">15:30</span><span>Children's creative activity</span></div><div class="day-row"><span class="day-time">17:00</span><span>Ice cream + photos</span></div><div class="day-row"><span class="day-time">18:00</span><span>Return to accommodation</span></div></div>
+        <p>The programme remains flexible because travelling with children — especially a baby — does not always go according to the clock.</p>`
+      },
+      assistant: {
+        eyebrow:"05 — Personal Assistant Services", title:"Personal Assistant Services",
+        price:"From 100 DH/hour",
+        html:`<p>Sometimes you simply need an extra pair of hands. AG provides flexible personal assistance for busy individuals and families.</p>
+        <ul><li>Organising appointments</li><li>Creating schedules</li><li>Shopping and errands</li><li>Collecting or delivering items</li><li>Helping organise daily activities</li><li>Basic household organisation</li><li>Travel-related organisation</li><li>Finding local services</li><li>Helping with practical communication</li><li>General day-to-day assistance</li></ul>
+        <p>Services are discussed and agreed upon before work begins.</p>`
+      },
+      cleaning: {
+        eyebrow:"06 — Cleaning Services", title:"Cleaning Services",
+        price:"From 80 DH/hour",
+        html:`<p>AG provides basic cleaning and organisation support for homes and apartments.</p>
+        <ul><li>General house cleaning</li><li>Apartment cleaning</li><li>Dusting</li><li>Sweeping</li><li>Mopping</li><li>Kitchen cleaning</li><li>Bathroom cleaning</li><li>Bedroom cleaning</li><li>Laundry assistance</li><li>Folding clothes</li><li>Ironing</li><li>General organisation</li><li>Post-travel cleaning</li></ul>
+        <h3>Deep Cleaning</h3><p>For spaces requiring more detailed attention, a customised price can be provided after discussing the size and condition of the property.</p>`
+      },
+      english: {
+        eyebrow:"07 — English Tutoring", title:"English Tutoring",
+        price:"200 DH / 1-hour private lesson",
+        html:`<p>English tutoring is designed to make learning fun, practical and useful.</p>
+        <h3>For children</h3><ul><li>Alphabet</li><li>Numbers</li><li>Colours</li><li>Animals</li><li>Family</li><li>Greetings</li><li>Vocabulary</li><li>Reading</li><li>Pronunciation</li><li>Simple conversations</li><li>Stories</li><li>Educational games</li></ul>
+        <h3>For teenagers & adults</h3><ul><li>Conversation</li><li>Grammar</li><li>Vocabulary</li><li>Pronunciation</li><li>Reading</li><li>Writing</li><li>Travel English</li><li>Everyday English</li><li>Business English</li></ul>
+        <h3>🇬🇧 English Through Adventure</h3><p>For children visiting Morocco, English can become part of the holiday:</p><ul><li><strong>At the beach:</strong> Sand · sea · boat · fish · swim</li><li><strong>At the zoo:</strong> Lion · elephant · monkey · big · small</li><li><strong>At a restaurant:</strong> Menu · food · drink · please · thank you</li></ul><p>This allows children to learn while experiencing the world around them.</p>`
+      }
+    };
+
+    const modal = document.getElementById('serviceModal');
+    document.querySelectorAll('.details-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const key = btn.closest('.service-card').dataset.service;
+        const d = details[key];
+        document.getElementById('modalEyebrow').textContent = d.eyebrow;
+        document.getElementById('modalTitle').textContent = d.title;
+        document.getElementById('modalBody').innerHTML = `<div class="price-box">${d.price}</div>${d.html}`;
+        modal.showModal();
+      });
+    });
+    document.getElementById('modalClose').addEventListener('click',()=>modal.close());
+    modal.addEventListener('click',e=>{if(e.target===modal) modal.close()});
+
+    const filters=document.querySelectorAll('.filter');
+    const cards=document.querySelectorAll('.service-card');
+    filters.forEach(f=>f.addEventListener('click',()=>{
+      filters.forEach(x=>x.classList.remove('active')); f.classList.add('active');
+      const cat=f.dataset.filter;
+      cards.forEach(c=>{c.classList.toggle('hidden',cat!=='all' && c.dataset.category!==cat)});
+    }));
+
+    const menuBtn=document.getElementById('menuBtn');
+    const navLinks=document.getElementById('navLinks');
+    menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{if(entry.isIntersecting) entry.target.classList.add('show')});
+    },{threshold:.08});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
